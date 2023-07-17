@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KurumsalWebDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AboutUs">
+    <Key>
+      <PropertyRef Name="AboutUsId" />
+    </Key>
+    <Property Name="AboutUsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Explanation" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Authorization" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="BlogText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BlogImageURL" Type="nvarchar" MaxLength="250" />
+    <Property Name="CategorieId" Type="int" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="CategorieId" />
+    </Key>
+    <Property Name="CategorieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Categoriename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CategorieExplanation" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ContactInformation">
+    <Key>
+      <PropertyRef Name="ContactInfoId" />
+    </Key>
+    <Property Name="ContactInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="50" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="50" />
+    <Property Name="Instagram" Type="nvarchar" MaxLength="50" />
+    <Property Name="Whatsapp" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ServiceExplanation" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageURL" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="System Identity">
+    <Key>
+      <PropertyRef Name="IdentityId" />
+    </Key>
+    <Property Name="IdentityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="LogoURL" Type="nvarchar" MaxLength="250" />
+    <Property Name="SuperScription" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_Blog_Categorie">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+    <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="CategorieId" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="CategorieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KurumsalWebDBModelStoreContainer">
+    <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactInformation" EntityType="Self.ContactInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="System Identity" EntityType="Self.System Identity" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Blog_Categorie" Association="Self.FK_Blog_Categorie">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Blog" EntitySet="Blog" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
