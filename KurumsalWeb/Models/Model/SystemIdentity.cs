@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace KurumsalWeb.Models.Model
 {
@@ -19,6 +20,7 @@ namespace KurumsalWeb.Models.Model
         [DisplayName("Website Keywords")]
         [Required, StringLength(200, ErrorMessage = "Must be at least 200 characters!")]
         public string Keywords { get; set; }
+        [AllowHtml]
         [DisplayName("Website Description")]
         [Required, StringLength(300, ErrorMessage = "Must be at least 300 characters!")]
         public string Description { get; set; }

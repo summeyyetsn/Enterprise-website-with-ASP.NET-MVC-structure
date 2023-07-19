@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<main id="main" class="main">
+
 
     <div class="pagetitle">
         <h1>Dashboard</h1>
@@ -12,11 +12,6 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
-                @foreach (var item in Model)
-                {
-                    <li>* @item.CategorieExplanation</li>
-                }
-                
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -646,4 +641,3 @@
         </div>
     </section>
 
-</main><!-- End #main -->

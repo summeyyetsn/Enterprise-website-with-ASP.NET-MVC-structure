@@ -37,6 +37,8 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <link href="~/Content/ckeditor/contents.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -282,6 +284,13 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="/SystemIdentity/Index/">
+                    <i class="bi bi-person"></i>
+                    <span>SystemIdentity</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -506,7 +515,15 @@
 
     </aside><!-- End Sidebar-->
 
-    @RenderBody()
+    <main id="main" class="main">
+        <div class="pagetitle">
+            @RenderBody()
+            </div>
+        </main>
+        
+        
+    
+    
 
     
     <!-- ======= Footer ======= -->
