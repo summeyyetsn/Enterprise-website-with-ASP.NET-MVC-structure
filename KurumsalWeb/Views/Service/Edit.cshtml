@@ -1,0 +1,46 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Service>
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit Service</h2>
+
+<form class="row g-3 needs-validation" method="post" action="/Service/Edit/@Model.ServiceId" enctype="multipart/form-data" novalidate>
+
+    <div class="col-md-12">
+        <label for="validationCustom01" class="form-label">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" required value="@Model.ServiceTitle">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <label for="validationCustom01" class="form-label">Explanation</label>
+        <textarea name="Explanation" required class="ckeditor">@Model.ServiceExplanation  </textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <label for="validationCustom01" class="form-label">Current Image</label>
+        <img src="@Model.ImageURL" width="150" height="150" />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="validationCustom01" class="form-label">Image</label>
+        <input type="file" class="form-control" name="ImageURL" accept=".jpg,.png,.jpeg" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Save Form</button>
+
+    </div>
+</form><!-- End Custom Styled Validation -->

@@ -850,8 +850,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\CategorieController.cs" />
+    <Compile Include="Controllers\ContactInformationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\SystemIdentityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -877,6 +882,23 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
     <Content Include="Views\SystemIdentity\Index.cshtml" />
     <Content Include="Views\SystemIdentity\Edit.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\AboutUs\Edit.cshtml" />
+    <Content Include="Views\ContactInformation\Create.cshtml" />
+    <Content Include="Views\ContactInformation\Delete.cshtml" />
+    <Content Include="Views\ContactInformation\Details.cshtml" />
+    <Content Include="Views\ContactInformation\Edit.cshtml" />
+    <Content Include="Views\ContactInformation\Index.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\Create.cshtml" />
+    <Content Include="Views\Service\Edit.cshtml" />
+    <Content Include="Views\Categorie\Create.cshtml" />
+    <Content Include="Views\Categorie\Delete.cshtml" />
+    <Content Include="Views\Categorie\Details.cshtml" />
+    <Content Include="Views\Categorie\Edit.cshtml" />
+    <Content Include="Views\Categorie\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -886,6 +908,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Service\" />
     <Folder Include="Uploads\SystemIdentityImg\" />
   </ItemGroup>
   <ItemGroup>
